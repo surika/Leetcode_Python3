@@ -3,7 +3,7 @@
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
         l = max(len(a), len(b))
-        a = a.zfill(l)
+        a = a.zfill(l) #在字符串前边补0，l为补全后的长度
         b = b.zfill(l)
         plus = 0
         result = ""
