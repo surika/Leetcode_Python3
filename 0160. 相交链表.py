@@ -13,3 +13,37 @@ class Solution(object):
             p = p.next if p else headB
             q = q.next if q else headA
         return p 
+
+        pA = headA
+        pB = headB
+        while pA != pB:
+            pA = pA.next
+            pB = pB.next
+            if not pA:
+                pA = headB
+            if not pB:
+                pB = headA
+        return pB
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        pA = headA
+        pB = headB
+        end = None
+        while pA and pB:
+            pA = pA.next
+            pB = pB.next
+            if not pA:
+                pA = headB
+                
+            if not pB:
+                pB = headA
+                cntB = cnt
+            if pA == pB:
+                return pB

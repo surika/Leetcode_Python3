@@ -14,6 +14,26 @@
 来源：力扣（LeetCode）
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 '''
+# 自己的写法
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        d = {'(':')', '{':'}', '[':']'}
+        for i in s:
+            # 左括号
+            if i in d.keys():
+                stack.append(i)
+            # 右括号
+            elif len(stack)==0: # 没有多的左括号
+                return False 
+            elif d.get(stack.pop()) == i:
+                continue    
+            else: # 弹出的左括号不匹配
+                return False
+        # 判断是否有未出栈的左括号
+        return len(stack) == 0
+
+# 更简洁
 class Solution:
     def isValid(self, s: str) -> bool:
         dic = {'{': '}',  '[': ']', '(': ')', '?': '?'}
